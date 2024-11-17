@@ -12,7 +12,9 @@ trap 'popd' RETURN
 
 # Set the default build type and pass all parameters
 BUILD_TYPE=RelWithDebInfo
-colcon build \
+VERBOSE=1 colcon build \
         --merge-install \
         --symlink-install \
+        --event-handlers console_direct+ \
+        --mixin debug \
         --cmake-args "-DCMAKE_BUILD_TYPE=${BUILD_TYPE}" "-DCMAKE_EXPORT_COMPILE_COMMANDS=On" ${@}
