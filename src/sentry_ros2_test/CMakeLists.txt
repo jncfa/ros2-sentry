@@ -37,19 +37,24 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(sentry_vendor REQUIRED)
-find_package(sentry REQUIRED)
+find_package(sentry REQUIRED CONFIG)
 
+get_executable_path(CRASHPAD_HANDLER sentry_crashpad::crashpad_handler CONFIGURE)
 
+message("boo" ${CRASHPAD_HANDLER})
 add_executable(sentry_test src/sentry_test.cpp)
 target_include_directories(sentry_test PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 target_compile_features(sentry_test PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+add_compile_definitions(CRASHPAD_HANDLER_PATH="${CRASHPAD_HANDLER}")
+
 ament_target_dependencies(
   sentry_test
   "sentry_vendor"
   sentry
 )
+
 
 separate_release_and_debug(sentry_test)
 

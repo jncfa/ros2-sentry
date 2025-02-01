@@ -20,7 +20,7 @@ int main(void) {
   sentry_options_set_database_path(options, ".sentry-native");
   sentry_options_set_release(options, "native@0.0.1");
   sentry_options_set_debug(options, 1);
-  sentry_options_set_handler_path(options, "/workspaces/ros2-sentry/install/opt/sentry_vendor/bin/crashpad_handler");
+  sentry_options_set_handler_path(options, CRASHPAD_HANDLER_PATH);
 
   sentry_init(options);
 
