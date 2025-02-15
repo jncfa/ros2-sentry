@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(otel_ros2_test)
+project(otel_test)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -26,8 +26,8 @@ target_link_libraries(
   opentelemetry-cpp::sdk
   opentelemetry-cpp::logs
   opentelemetry-cpp::trace
-  opentelemetry-cpp::ostream_span_exporter
-  opentelemetry-cpp::ostream_log_record_exporter
+  opentelemetry-cpp::otlp_grpc_exporter
+  opentelemetry-cpp::otlp_grpc_log_record_exporter
 )
 
 install(TARGETS otel_test

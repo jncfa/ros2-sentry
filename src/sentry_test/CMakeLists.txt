@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(sentry_ros2_test)
+project(sentry_test)
 
 function(separate_release_and_debug TARGET)
     # NOTE: The dbg extension is used solely because it is used as a standard

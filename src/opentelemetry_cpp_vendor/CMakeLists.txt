@@ -10,6 +10,7 @@ find_package(opentelemetry-cpp CONFIG QUIET)
 option(WITH_PROMETHEUS "Indicate if you want to build with prometheus exporter" OFF)
 option(WITH_OTLP_HTTP "Indicate if you want to build with OTLP HTTP exporter" ON)
 option(WITH_OTLP_GRPC "Indicate if you want to build with OTLP GRPC" ON)
+option(WITH_ASYNC_EXPORT_PREVIEW "Whether to enable async export" ON)
 
 ament_vendor(opentelemetry_cpp_vendor
   SATISFIED ${opentelemetry_cpp_FOUND}
@@ -19,7 +20,7 @@ ament_vendor(opentelemetry_cpp_vendor
   -DWITH_PROMETHEUS=${WITH_PROMETHEUS}
   -DWITH_OTLP_HTTP=${WITH_OTLP_HTTP}
   -DWITH_OTLP_GRPC=${WITH_OTLP_GRPC}
-
+  -DWITH_ASYNC_EXPORT_PREVIEW=${WITH_ASYNC_EXPORT_PREVIEW}
     # all of these are required for building dynlibs
   -DOPENTELEMETRY_INSTALL=ON
   -DBUILD_SHARED_LIBS=ON
