@@ -39,9 +39,8 @@ find_package(ament_cmake REQUIRED)
 find_package(sentry_vendor REQUIRED)
 find_package(sentry REQUIRED CONFIG)
 
-get_executable_path(CRASHPAD_HANDLER sentry_crashpad::crashpad_handler CONFIGURE)
+get_executable_path(CRASHPAD_HANDLER sentry_crashpad::crashpad_handler BUILD)
 
-message("boo" ${CRASHPAD_HANDLER})
 add_executable(sentry_test src/sentry_test.cpp)
 target_include_directories(sentry_test PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

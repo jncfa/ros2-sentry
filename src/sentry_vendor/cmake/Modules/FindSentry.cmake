@@ -20,7 +20,7 @@ find_library(sentry_LIBRARY  NAMES sentry   PATH_SUFFIXES "sentry" ${sentry_LIBR
 # extract sdk version
 if (sentry_INCLUDE_DIR)
   file(STRINGS "${sentry_INCLUDE_DIR}/sentry.h" version-file
-    REGEX "#define[ \t]+SENTRY_SDK_VERSION .*")
+    REGEX "#define[ \t]+SENTRY_SDK_VERSION.*")
   list(GET version-file 0 version_line)
   string(REGEX REPLACE "^#define[ \t]+SENTRY_SDK_VERSION[ \t]+\"([0-9]+\.[0-9]+\.[0-9]+)\"" "\\1" sentry_VERSION ${version_line})
 endif()

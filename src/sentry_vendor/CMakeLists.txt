@@ -20,7 +20,6 @@ ament_vendor(sentry_vendor
 )
 
 ament_export_dependencies(sentry)
-#ament_export_include_directories(${CMAKE_INSTALL_PREFIX}/opt/sentry_vendor/include)
 
 install(DIRECTORY cmake DESTINATION share/${PROJECT_NAME})
 
